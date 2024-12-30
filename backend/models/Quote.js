@@ -15,6 +15,10 @@ const quoteSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
+  },
+  favorite: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

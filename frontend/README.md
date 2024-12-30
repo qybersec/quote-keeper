@@ -1,8 +1,31 @@
-# React + Vite
+## Quote Keeper - MERN Stack Portfolio Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack application demonstrating MERN stack development with authentication and authorization.
 
-Currently, two official plugins are available:
+### Features
+- User authentication (login with email/username)
+- Public quote viewing
+- Protected quote management (CRUD operations)
+- JWT-based authentication
+- MongoDB database
+- Material-UI responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Technical Stack
+- MongoDB: Database
+- Express: Backend framework
+- React: Frontend library
+- Node.js: Runtime environment
+- Material-UI: UI components
+- JWT: Authentication
+
+### Setup Instructions
+1. Clone the repository
+2. Install dependencies in both frontend and backend folders
+3. Create .env file in backend with required variables
+4. Run backend: `npm run dev`
+5. Run frontend: `npm run dev`
+
+### Environment Variables
+- `MONGODB_URI`: MongoDB connection string
+- `JWT_SECRET`: Secret key for JWT
+- `PORT`: Port number for server

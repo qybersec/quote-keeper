@@ -74,17 +74,27 @@ router.post('/login', async (req, res) => {
 // Update profile
 router.put('/profile', auth, async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, username } = req.body;
     
-    // Check if email is already taken
-    const existingUser = await User.findOne({ email, _id: { $ne: req.userId } });
+    // Check if email or username is already taken
+    const existingUser = await User.findOne({ 
+      $or: [
+        { email, _id: { $ne: req.userId } },
+        { username, _id: { $ne: req.userId } }
+      ]
+    });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already in use' });
+      if (existingUser.email === email) {
+        return res.status(400).json({ message: 'Email already in use' });
+      }
+      if (existingUser.username === username) {
+        return res.status(400).json({ message: 'Username already taken' });
+      }
     }
 
     const user = await User.findByIdAndUpdate(
       req.userId,
-      { email },
+      { email, username },
       { new: true }
     ).select('-password');
 

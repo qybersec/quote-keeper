@@ -21,6 +21,7 @@ export const getMyQuotes = () => api.get('/quotes/my-quotes');
 export const addQuote = (quoteData) => api.post('/quotes', quoteData);
 export const updateQuote = (id, quoteData) => api.put(`/quotes/${id}`, quoteData);
 export const deleteQuote = (id) => api.delete(`/quotes/${id}`);
+export const toggleFavorite = (id) => api.patch(`/quotes/${id}/favorite`);
 export const updateProfile = (userData) => api.put('/auth/profile', userData);
 export const updatePassword = (passwordData) => api.put('/auth/password', passwordData);
 

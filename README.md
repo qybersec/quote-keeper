@@ -10,6 +10,9 @@ A full-stack application for managing and displaying quotes, built with the MERN
 - Responsive Material-UI Design
 - JWT Token Authentication
 - MongoDB Database
+- Dark/Light Theme Toggle
+- Profile Management
+- Quote Favorites System
 
 ## Tech Stack
 
@@ -19,6 +22,7 @@ A full-stack application for managing and displaying quotes, built with the MERN
 - Node.js: Runtime Environment
 - Material-UI: UI Components
 - JWT: Authentication
+- Framer Motion: Animations
 
 ## Setup Instructions
 
@@ -39,7 +43,12 @@ A full-stack application for managing and displaying quotes, built with the MERN
    JWT_SECRET=your_jwt_secret
    PORT=5000
    ```
-4. Start the servers:
+4. Set up MongoDB:
+   - Create free account on MongoDB Atlas
+   - Create new cluster
+   - Get connection string and add to .env
+   - Add IP address to whitelist
+5. Start the servers:
    ```bash
    # Start backend (from backend directory)
    npm run dev
@@ -53,10 +62,15 @@ A full-stack application for managing and displaying quotes, built with the MERN
 ### Authentication
 - POST `/api/auth/register` - Register new user
 - POST `/api/auth/login` - Login user
+- PUT `/api/auth/profile` - Update user profile
+- PUT `/api/auth/password` - Update password
 
 ### Quotes
 - GET `/api/quotes` - Get all quotes (public)
+- GET `/api/quotes/my-quotes` - Get user's quotes (protected)
 - POST `/api/quotes` - Add new quote (protected)
+- PUT `/api/quotes/:id` - Update quote (protected)
 - DELETE `/api/quotes/:id` - Delete quote (protected)
+- PATCH `/api/quotes/:id/favorite` - Toggle favorite (protected)
 
 ## Project Structure 

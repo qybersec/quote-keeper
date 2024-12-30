@@ -29,7 +29,8 @@ router.post('/', auth, async (req, res) => {
     const quote = new Quote({
       text,
       author,
-      user: req.userId
+      user: req.userId,
+      favorite: false
     });
     await quote.save();
     res.status(201).json(quote);
@@ -65,6 +66,21 @@ router.put('/:id', auth, async (req, res) => {
     if (!quote) {
       return res.status(404).json({ message: 'Quote not found' });
     }
+    res.json(quote);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Add toggle favorite route
+router.patch('/:id/favorite', auth, async (req, res) => {
+  try {
+    const quote = await Quote.findOne({ _id: req.params.id, user: req.userId });
+    if (!quote) {
+      return res.status(404).json({ message: 'Quote not found' });
+    }
+    quote.favorite = !quote.favorite;
+    await quote.save();
     res.json(quote);
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
