@@ -74,3 +74,19 @@ A full-stack application for managing and displaying quotes, built with the MERN
 - PATCH `/api/quotes/:id/favorite` - Toggle favorite (protected)
 
 ## Project Structure 
+
+## Deployment
+
+### Backend
+- Ensure environment variables are set
+- Configure MongoDB Atlas network access
+- Deploy to platform of choice (Heroku, Railway, etc.)
+
+### Frontend
+- Update API base URL for production
+- Build the project: `npm run build`
+- Deploy to static hosting (Vercel, Netlify, etc.)
+
+## Screenshots
+
+[Add screenshots of key features here] 
